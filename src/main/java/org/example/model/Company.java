@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import jakarta.persistence.CascadeType;
 
 import java.util.List;
 
@@ -14,12 +15,12 @@ import java.util.List;
 @NoArgsConstructor
 public class Company {
     @Id
-    @GeneratedValue(generator = "company_gen",strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "company_gen",sequenceName = "company_seq",allocationSize = 1)
+    @GeneratedValue(generator = "company_gen", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "company_gen", sequenceName = "company_seq", allocationSize = 1)
     private Long id;
     private String name;
     private String country;
-    @OneToMany(mappedBy = "company",cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "company", cascade = {CascadeType.ALL})
     private List<Product> products;
 
     public Company(String name, String country) {
@@ -33,7 +34,6 @@ public class Company {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", country='" + country + '\'' +
-              //  ", products=" + products +
                 '}';
     }
 }

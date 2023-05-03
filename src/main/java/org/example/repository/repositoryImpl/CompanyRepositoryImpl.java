@@ -7,6 +7,7 @@ import org.example.repository.CompanyRepository;
 
 public class CompanyRepositoryImpl implements CompanyRepository {
     EntityManager e = Config.getEntityManager();
+
     @Override
     public String saveCompany(Company company) {
         e.getTransaction().begin();

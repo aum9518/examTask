@@ -9,6 +9,7 @@ import java.util.List;
 
 public class ProductRepositoryImpl implements ProductRepository {
     EntityManager e = Config.getEntityManager();
+
     @Override
     public String save(Product product) {
         e.getTransaction().begin();
@@ -21,8 +22,8 @@ public class ProductRepositoryImpl implements ProductRepository {
     @Override
     public List<Product> findAllProductsByCompanyId(Long companyId) {
         e.getTransaction().begin();
-        List<Product> list = e.createQuery("select p from Product p join p.company c where c.id = :id",Product.class)
-                .setParameter("id",companyId)
+        List<Product> list = e.createQuery("select p from Product p join p.company c where c.id = :id", Product.class)
+                .setParameter("id", companyId)
                 .getResultList();
         e.getTransaction().commit();
         e.close();

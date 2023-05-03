@@ -9,6 +9,7 @@ import java.util.List;
 
 public class CategoryRepositoryImpl implements CategoryRepository {
     EntityManager e = Config.getEntityManager();
+
     @Override
     public String save(Category category) {
         e.getTransaction().begin();

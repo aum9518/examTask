@@ -6,6 +6,7 @@ import org.example.service.CompanyService;
 
 public class CompanyServiceImpl implements CompanyService {
     CompanyRepositoryImpl company1 = new CompanyRepositoryImpl();
+
     @Override
     public String saveCompany(Company company) {
         return company1.saveCompany(company);
@@ -18,6 +19,6 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public Company update(Long id, Company company) {
-        return company1.update(id,company);
+        return company1.update(id, company);
     }
 }

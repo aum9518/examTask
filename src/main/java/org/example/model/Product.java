@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import jakarta.persistence.CascadeType;
 
 import java.time.LocalDate;
+
 @Entity
 @Table(name = "products")
 @Getter
@@ -13,17 +15,17 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class Product {
     @Id
-    @GeneratedValue(generator = "product_gen",strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "product_gen",sequenceName = "product_seq",allocationSize = 1)
+    @GeneratedValue(generator = "product_gen", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "product_gen", sequenceName = "product_seq", allocationSize = 1)
     private Long id;
     @Column(name = "product_name")
     private String productName;
     private int price;
     @Column(name = "year_of_issue")
     private LocalDate yearOfIssue;
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH})
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH})
     private Company company;
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH})
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH})
     private Category category;
 
     public Product(String productName, int price, LocalDate yearOfIssue) {
@@ -47,8 +49,6 @@ public class Product {
                 ", productName='" + productName + '\'' +
                 ", price=" + price +
                 ", yearOfIssue=" + yearOfIssue +
-               // ", company=" + company +
-                //", category=" + category +
                 '}';
     }
 }

@@ -12,11 +12,9 @@ import java.time.LocalDate;
 
 /**
  * Hello world!
- *
  */
-public class App 
-{
-    public static void main( String[] args ) {
+public class App {
+    public static void main(String[] args) {
 //        Config.getEntityManager();
         CompanyServiceImpl company = new CompanyServiceImpl();
         ProductServiceImpl product = new ProductServiceImpl();
@@ -26,7 +24,7 @@ public class App
 //        System.out.println(company.update(1L, new Company("Asman", "KGS")));
 //        System.out.println(company.deleteById(1L));
 
-        Company company1 = new Company("Jetigen","KG");
+        Company company1 = new Company("Jetigen", "KG");
         Category category1 = new Category("electronic");
 //        System.out.println(product.save(new Product("Radio", 500, LocalDate.of(2022, 1, 1),company1,category1)));
 //        System.out.println(product.findAllProductsByCompanyId(3L));
